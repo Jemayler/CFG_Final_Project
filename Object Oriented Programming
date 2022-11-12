@@ -1,0 +1,36 @@
+class Student:  # It is convention to write the name of a class with a capital letter
+  def __init__(self, name, year):   # This is a constructor for the class Student
+    self.name = name
+    self.year = year
+    self.grades = []
+
+  def add_grade(self, grade):   # This is a method in the class Student
+    if type(grade) is Grade:  # .add_grade() verifies that grade is of type Grade and if so, adds it to the Student‘s
+      # .grades.
+      self.grades.append(grade)
+
+class Grade:
+  minimum_passing = 65
+
+  def __init__(self, score):
+    self.score = score
+
+# Below are 3 instances of the class Student
+roger = Student("Roger van der Weyden", 10)
+sandro = Student("Sandro Botticelli", 12)
+pieter = Student("Pieter Bruegel the Elder", 8)
+
+# This creates a new Grade with a score of 100 and adds it to pieter‘s .grades attribute using .add_grade().
+pieter.add_grade(Grade(100))
+
+# So far we’ve covered what a data type actually is in Python. We explored what the functionality of Python’s
+# built-in types (also referred to as primitives) are. We learned how to create our own data types using the class
+# keyword.
+#
+# We explored the relationship between a class and an object — we create objects when we instantiate a class,
+# we find the class when we check the type() of an object. We learned the difference between class variables (the
+# same for all objects of a class) and instance variables (unique for each object).
+#
+# We learned about how to define an object’s functionality with methods. We created multiple objects from the same
+# class, all with similar functionality, but with different internal data. They all had the same methods,
+# but produced different output because they were different instances.
